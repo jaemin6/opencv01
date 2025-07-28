@@ -43,9 +43,14 @@ import numpy as np
 # cv2.destroyAllWindows()
 # #cv2.imshow(image)
 
-space = np.zeros((500, 1000), dtype=np.uint8)
+space = np.zeros((768, 1388), dtype=np.uint8)
 color = 255
-space = cv2.circle(space, (600, 200), 100, color, 4, 1)
+obj1 = np.array([[300, 500], [500, 500], [400, 600], [200, 600]])
+obj2 = np.array([[600, 500], [800, 500], [700, 200]])
+#space = cv2.circle(space, (600, 200), 100, color, 4, 1)
+
+space = cv2.polylines(space, [obj1], True, color, 3)
+space = cv2.fillPoly(space, [obj2], color)
 
 #line_color = 255
 
@@ -53,6 +58,7 @@ space = cv2.circle(space, (600, 200), 100, color, 4, 1)
 #space = cv2.line(space, (100, 100), (800, 400), line_color, 3, 1)
 
 #cv2.imshow('Line on Space', space)
-cv2.imshow('Circle', space)
+#cv2.imshow('Circle', space)
+cv2.imshow('Polygons', space)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
