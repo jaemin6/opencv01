@@ -56,14 +56,33 @@ space = np.zeros((768, 1388, 3), dtype=np.uint8)
 # space = cv2.fillPoly(space, [obj2], color)
 
 grid_spacing = 50
-grid_color = (0, 255, 255)
+colors = [
+    (255, 0, 0),     # 파랑
+    (255, 165, 0),   # 주황
+    (255, 255, 0),   # 노랑
+    (0, 255, 0),     # 초록
+    (0, 255, 255),   # 하늘
+    (0, 0, 255),     # 빨강
+    (255, 0, 255),   # 보라
+]
+#grid_color = (0, 255, 255)
 #grid_color = 225
 
-for x in range(0, space.shape[1], grid_spacing):
-    cv2.line(space, (x, 0), (x, space.shape[0]), grid_color, 1)
+#for x in range(0, space.shape[1], grid_spacing):
+#    cv2.line(space, (x, 0), (x, space.shape[0]), grid_color, 1)
 
-for y in range(0, space.shape[0], grid_spacing):
-    cv2.line(space, (0, y), (space.shape[1], y), grid_color, 1)
+#for y in range(0, space.shape[0], grid_spacing):
+#    cv2.line(space, (0, y), (space.shape[1], y), grid_color, 1)
+
+# 세로선 (x축)
+for idx, x in enumerate(range(0, space.shape[1], grid_spacing)):
+    color = colors[idx % len(colors)]
+    cv2.line(space, (x, 0), (x, space.shape[0]), color, 1)
+
+# 가로선 (y축)
+for idx, y in enumerate(range(0, space.shape[0], grid_spacing)):
+    color = colors[idx % len(colors)]
+    cv2.line(space, (0, y), (space.shape[1], y), color, 1)
 
 #line_color = 255
 
