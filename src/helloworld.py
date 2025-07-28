@@ -10,9 +10,13 @@ new_width = 300
 # 이미지 리사이즈
 resized_image = cv2.resize(image, (new_width, new_height))
 
+# 2. 2배 확대 (비율로 리사이즈)
+image_big = cv2.resize(image, dsize=None, fx=2, fy=2)
+
 # 이미지 보여주기
 cv2.imshow('Original Image', image)
-cv2.imshow('Resized Image', resized_image)
+cv2.imshow('Resized Image (300x300)', resized_image)
+cv2.imshow('Zoomed x2 Image', image_big)
 
 dst = np.zeros((new_height, new_width), dtype=np.uint8)
 dst = cv2.resize(image, (new_width, new_height))
