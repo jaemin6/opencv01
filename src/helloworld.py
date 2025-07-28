@@ -43,7 +43,10 @@ import numpy as np
 # cv2.destroyAllWindows()
 # #cv2.imshow(image)
 
-space = np.zeros((768, 1388), dtype=np.uint8)
+# 컬러 입히기
+space = np.zeros((768, 1388, 3), dtype=np.uint8)
+
+#space = np.zeros((768, 1388), dtype=np.uint8)
 # color = 255
 # obj1 = np.array([[300, 500], [500, 500], [400, 600], [200, 600]])
 # obj2 = np.array([[600, 500], [800, 500], [700, 200]])
@@ -53,7 +56,8 @@ space = np.zeros((768, 1388), dtype=np.uint8)
 # space = cv2.fillPoly(space, [obj2], color)
 
 grid_spacing = 50
-grid_color = 225
+grid_color = (0, 255, 255)
+#grid_color = 225
 
 for x in range(0, space.shape[1], grid_spacing):
     cv2.line(space, (x, 0), (x, space.shape[0]), grid_color, 1)
@@ -69,6 +73,6 @@ for y in range(0, space.shape[0], grid_spacing):
 #cv2.imshow('Line on Space', space)
 #cv2.imshow('Circle', space)
 #cv2.imshow('Polygons', space)
-cv2.imshow("Grid Image", space)
+cv2.imshow("Color Grid", space)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
