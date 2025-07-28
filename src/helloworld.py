@@ -15,7 +15,9 @@ cv2.resize(image, (new_width, new_height), dst=dst)
 
 # 이미지를 보여주는 명령어
 cv2.imshow('Image Window', image)
+cv2.imshow('Image Window', dst)
 #cv2.imshow('Image Window', image_small)
+print(image.shape)
 
 cv2.waitKey(0)
 cv2.destoryAllWindow()
