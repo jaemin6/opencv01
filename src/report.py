@@ -8,7 +8,7 @@ image_big = cv2.resize(image, dsize=None, fx=2, fy=2)
 # 2. 이미지 위에 텍스트 추가
 cv2.putText(image_big, "handsome guy", (50, 100),         # 위치(x, y)
             cv2.FONT_HERSHEY_SIMPLEX,                     # 폰트 종류
-            2,                                            # 글자 크기
+            1,                                            # 글자 크기
             (255, 0, 255),                                # 색 (보라색)
             3,                                            # 두께
             cv2.LINE_AA)                                  # 선 형태
