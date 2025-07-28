@@ -17,6 +17,11 @@ def color_animation(t):
     b = (128 + t * 5) % 256
     return (b, g, r)
 
+def grid_color_animation(t):
+    # 격자 색상을 시간에 따라 변화시키기
+    val = (t * 5) % 256
+    return (val, val, val)  # 회색조 밝기 변화
+
 def mouse_event(event, x, y, flags, param):
     global text_pos
     if event == cv2.EVENT_LBUTTONDOWN:
@@ -27,11 +32,13 @@ cv2.setMouseCallback("Image with Text", mouse_event)
 
 t = 0
 grid_spacing = 50
-grid_color = (200, 200, 200)
 grid_thickness = 1
 
 while True:
     img_display = image_big.copy()
+
+    # 격자 색상 계산
+    grid_color = grid_color_animation(t)
 
     # 격자 그리기
     for x in range(0, img_display.shape[1], grid_spacing):
