@@ -7,6 +7,12 @@ image = cv2.imread('../img/like_lenna.png')
 new_height = 300
 new_width = 300
 
+# crop: 이미지의 (50,50)부터 (150,150)까지 잘라서 변수에 저장
+croped_image = image[50:150, 50:150]
+
+# 잘린 부분을 회색(값 200)으로 채우기 → 원본 이미지에 바로 영향 줌
+croped_image[:] = 200
+
 # 상하 반전
 image_fliped = cv2.flip(image, 0)
 
@@ -20,6 +26,7 @@ resized_image = cv2.resize(image, (new_width, new_height))
 cv2.imshow('Original Image', image)
 cv2.imshow('Resized Image (300x300)', resized_image)
 cv2.imshow('Flipped Image (UpDown)', image_fliped)
+cv2.imshow('Modified Image', image)
 #cv2.imshow('Zoomed x2 Image', image_big)
 
 dst = np.zeros((new_height, new_width), dtype=np.uint8)
