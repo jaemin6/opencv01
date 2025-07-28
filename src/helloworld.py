@@ -43,15 +43,16 @@ import numpy as np
 # cv2.destroyAllWindows()
 # #cv2.imshow(image)
 
-import cv2
-import numpy as np
-
 space = np.zeros((500, 1000), dtype=np.uint8)
-line_color = 255
+color = 255
+space = cv2.circle(space, (600, 200), 100, color, 4, 1)
+
+#line_color = 255
 
 # 선 그리기: 시작점(100,100), 끝점(800,400), 두께 3, 선 종류 1(8-connected line)
-space = cv2.line(space, (100, 100), (800, 400), line_color, 3, 1)
+#space = cv2.line(space, (100, 100), (800, 400), line_color, 3, 1)
 
-cv2.imshow('Line on Space', space)
+#cv2.imshow('Line on Space', space)
+cv2.imshow('Circle', space)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
