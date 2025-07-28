@@ -44,13 +44,22 @@ import numpy as np
 # #cv2.imshow(image)
 
 space = np.zeros((768, 1388), dtype=np.uint8)
-color = 255
-obj1 = np.array([[300, 500], [500, 500], [400, 600], [200, 600]])
-obj2 = np.array([[600, 500], [800, 500], [700, 200]])
-#space = cv2.circle(space, (600, 200), 100, color, 4, 1)
+# color = 255
+# obj1 = np.array([[300, 500], [500, 500], [400, 600], [200, 600]])
+# obj2 = np.array([[600, 500], [800, 500], [700, 200]])
+# #space = cv2.circle(space, (600, 200), 100, color, 4, 1)
 
-space = cv2.polylines(space, [obj1], True, color, 3)
-space = cv2.fillPoly(space, [obj2], color)
+# space = cv2.polylines(space, [obj1], True, color, 3)
+# space = cv2.fillPoly(space, [obj2], color)
+
+grid_spacing = 50
+grid_color = 225
+
+for x in range(0, space.shape[1], grid_spacing):
+    cv2.line(space, (x, 0), (x, space.shape[0]), grid_color, 1)
+
+for y in range(0, space.shape[0], grid_spacing):
+    cv2.line(space, (0, y), (space.shape[1], y), grid_color, 1)
 
 #line_color = 255
 
@@ -59,6 +68,7 @@ space = cv2.fillPoly(space, [obj2], color)
 
 #cv2.imshow('Line on Space', space)
 #cv2.imshow('Circle', space)
-cv2.imshow('Polygons', space)
+#cv2.imshow('Polygons', space)
+cv2.imshow("Grid Image", space)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
