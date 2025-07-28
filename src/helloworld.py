@@ -44,7 +44,9 @@ import numpy as np
 # #cv2.imshow(image)
 
 # 컬러 입히기
-space = np.zeros((768, 1388, 3), dtype=np.uint8)
+background_color = (255, 200, 200)  # 연한 분홍색 같은 톤 (BGR 순서!)
+space = np.full((768, 1388, 3), background_color, dtype=np.uint8)   # np.zeros를 full로 바꿔서 배경색 채움
+#space = np.zeros((768, 1388, 3), dtype=np.uint8)
 
 #space = np.zeros((768, 1388), dtype=np.uint8)
 # color = 255
